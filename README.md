@@ -1,6 +1,5 @@
 ## sit725-2024-t1-prac6
-This is the repository for our group project- ReWearIt.
-
+Task 6.2D
 ## Installation
 To run this application locally, follow these steps:
 
