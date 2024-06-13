@@ -13,8 +13,6 @@ quality of your software.
 
 ## Installation
 To run this application locally, follow these steps:
-
-- Clone the repository: [git clone https://github.com/kaseyuu/sit725-2023-t1-teamwork.git](https://github.com/HammadSaqibDev/sit725-2024-t1-prac6?tab=readme-ov-file)
 - Navigate to the project directory: cd repository
 - Install dependencies: npm install
 - Start the development server: npm start
