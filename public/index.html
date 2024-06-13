@@ -1,0 +1,232 @@
+<!-- Mansheen's code -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReWearIt</title>
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="./dashboard/style.css" />
+     <!-- Google Fonts stylesheet -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+     <!-- Material Icons stylesheet -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+     <!-- Axios library for HTTP requests -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <nav>
+      <!-- ReWearIt logo -->
+      <div class="rewearit_logo" id="rewearit_logo" style="cursor: pointer;" onClick="refreshPage()" >
+        <img src="./images/rewearit_logo.png" width="150" height="120" />
+      </div>
+      <!-- Navbar links -->
+      <div class="navbar_links flex">
+        <a href="#" class="home_tab" onClick="refreshPage()">HOME</a>
+        <a href="#" class="categories_tab" id="categories_tab">CATEGORIES</a>
+        <a href="#" class="about_us_tab" id="about_us_tab">ABOUT US</a>
+        <a href="#" class="contact_us_tab" id="contact_us_tab">CONTACT US</a>
+        <span class="material-symbols-outlined search_tab" id="search_tab" style="cursor: pointer;"> search </span>
+        <span class="material-symbols-outlined logout_tab" id="logout_tab" style="cursor: pointer;"> logout 
+    </span>
+    <!-- logout dropdown box-->
+    <div id="myDropdown" class="dropdown-content">
+      <div class="option option_1" id="logout_btn">
+        <span class="material-symbols-outlined">logout</span>
+        <span class="option-text">Logout</span>
+      </div>
+      <div class=" option option_2">
+        <span class="material-symbols-outlined">
+          close
+          </span>
+          <span class="option-text">Cancel</span>
+        </div>
+    </div>
+    <!--  logout dropdown ends-->
+    </nav>
+
+    <section class="homepage">
+      <div class="part_1 flex">
+        <img class="wave" src="./images/wave.jpg" />
+        <img class="main_girl" src="./images/main_girl.png" />
+        <h1 class="h1">
+          Swap your style: <br />
+          Trade your <br />
+          clothes online
+        </h1>
+      </div>
+      <div class="part_2 flex">
+        <div class="gradient"></div>
+        <p class="p">
+          <b>"Is your wardrobe overflowing?”</b><br />
+          Let's turn your pre-loved clothes into cash
+        </p>
+        <button class="button" id="button">Explore Now</button>
+      </div>
+    </section>
+
+    <section class="stripe_1" id="stripe_1">
+      <div class="white_stripe flex">
+        <li>STYLE</li>
+        <li>STYLE</li>
+        <li>STYLE</li>
+        <li>STYLE</li>
+        <li>STYLE</li>
+      </div>
+      <div class="black_stripe flex">
+        <li>MEN</li>
+        <li>WOMEN</li>
+        <li>KIDS</li>
+      </div>
+    </section>
+
+    <section class="categories_page">
+      <h2 class="categories_heading">CATEGORIES</h2>
+      <div class="categories_div">
+        <div class="men_categories" id="men_categories">
+          <img src="./images/men_categories.png" alt="men" />
+          <h3>MEN</h3>
+        </div>
+        <div class="women_categories" id="women_categories">
+          <img src="./images/women_categories.png" />
+          <h3>WOMEN</h3>
+        </div>
+        <div class="kids_categories" id="kids_categories">
+          <img src="./images/kids_categories.png" />
+          <h3>KIDS</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="why_choose_us_page">
+      <h2>WHY CHOOSE US?</h2>
+      <div class="why_choose_us_text_image flex">
+        <p>
+          01 You can make a positive impact on the environment and <br />
+          circular economy by trading your clothes.<br />
+          <br />
+
+          02 You can connect with people from various backgrounds, <br />
+          styles, and sizes, increasing the chances of finding the <br />
+          perfect trade partner. <br />
+          <br />
+
+          03 Cost-effective solution as you can trade your unused <br />
+          clothes for something new, saving money in the process. <br />
+          <br />
+
+          04 You can trade clothes from the comfort of your own <br />
+          homes, eliminating the need to visit physical stores or <br />
+          deal with the complexities of online shopping.<br />
+          <br />
+
+          05 User-friendly experience and accessible to a wide <br />
+          range of users. <br />
+        </p>
+        <img src="./images/why_choose_us_page_image.png" />
+      </div>
+    </section>
+
+    <section class="about_us_page flex" id="about_us_page">
+      <h2>ABOUT US</h2>
+      <p>
+        Welcome to ReWearIt, where sustainable fashion meets effortless style.
+        Our mission is to provide a platform for people to trade clothes they no
+        longer wear, promoting responsible fashion consumption and reducing
+        textile waste.  <br> <br> Join us in creating a more sustainable future, one
+        stylish trade at a time!
+      </p>
+    </section>
+
+    <section class="stripe_2">
+      <div class="white_stripe_2 flex">
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+      </div>
+      <div class="black_stripe_2 flex">
+        <span class="material-symbols-outlined" style="font-size: 40px;">
+          grade
+          </span>
+        Revamp Your Wardrobe And Reduce Fashion Waste 
+        <span class="material-symbols-outlined" >
+        <span class="material-symbols-outlined" style="font-size: 40px;">
+          grade
+          </span>
+      </div>
+    </section>
+
+      <section class="rewaerit_video" id="video">    
+      <video src="./rewearit_video/ReWearIt_video.mp4" width="1440" height="770" id="rewaerit_video" preload="auto" controls muted></video>
+    </section>
+    <section class="strip_3">
+      <div class="white_stripe_2 flex">
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+        <li><i class="material-icons" style="font-size:40px;color:green">star</i></li>
+      </div>
+      <div class="black_stripe_2 flex">
+        <span class="material-symbols-outlined" style="font-size: 40px;">
+          grade
+          </span>
+        Revamp Your Wardrobe And Reduce Fashion Waste 
+        <span class="material-symbols-outlined" >
+        <span class="material-symbols-outlined" style="font-size: 40px;">
+          grade
+          </span>
+      </div>
+    </section>
+
+    <section class="photo_wall_page" id="photo_wall_page">
+      <h2>PHOTO WALL</h2>
+      <div class="photo_wall_div " id="photo_wall_div"> 
+      </div> 
+    </section>
+
+    <section class="cta_page flex" id="cta_page">
+        <h2>LET'S SWAP YOUR STYLE AND TRADE YOUR CLOTHES ONLINE TOGETHER!</h2>
+      <img class="main_girl" src="./images/main_girl.png" />
+    </section>
+
+    <footer class="flex">
+      <div class="logo_and_social_handles">
+        <img src="./images/rewearit_logo.png" width="150" height="120" />
+        <div class="social_handles flex">
+          <img src="./images/fb.png" id="fb_handle" height="13%" width="13%">
+          <img src="./images/Ig.png" id="insta_handle" height="11%" width="11%">
+          <img src="./images/yt.png" id="youtube_handle" height="13%" width="13%">
+        </div>
+      </div>
+      <div class="services">
+        <h3>SERVICES</h3>
+        <h4 class="home_tab" id="home_services">Home</h4>
+        <h4 class="about_us_tab" id="about_us_services">About Us</h4>
+        <h4 class="Contact_us_tab" id="Contact_us_services">Contact Us</h4>
+      </div>
+      <div class="contact_us_footer"> 
+        <h3>CONTACT US</h3>
+        <h4>+61 9877756090</h4>
+        <h4>rewearit@gmail.com</h4>
+        <h4>Sydney, Australia</h4>
+      </div>
+
+    
+    </footer>
+<!-- end part -->
+    <div class="fade_effect1"></div>
+    <div class="all_rights_reserved">2023 ReWearIt. All rights reserved.</div>
+  </body>
+
+  <script src="./dashboard/scripts.js"></script>
+</html>
+

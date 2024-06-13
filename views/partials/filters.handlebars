@@ -1,0 +1,109 @@
+<div class="col col-2 d-grid gap-2 filters">
+    <button class="btn btn-dark btn-lg text-start" type="button" aria-expanded="false">
+        Filters
+    </button>
+    <!-- Categories Collapse -->
+    <div class="filter" id="categoryFilter">
+        <button class="btn btn-light btn-lg dropdown-toggle text-start" type="button" data-bs-toggle="collapse"
+            data-bs-target="#categoriesCollapse" aria-expanded="false" aria-controls="categoriesCollapse">
+            Category
+        </button>
+        <div class="collapse" id="categoriesCollapse">
+            <div class="card card-body">
+                <a class="dropdown-item" href="#">Men</a>
+                <a class="dropdown-item" href="#">Women</a>
+                <a class="dropdown-item" href="#">Kids</a>
+            </div>
+        </div>
+    </div>
+    <!-- Subcategories Collapse -->
+    <div class="filter" id="subcategoryFilter">
+        <button class="btn btn-light btn-lg dropdown-toggle text-start" type="button" data-bs-toggle="collapse"
+            data-bs-target="#subcategoriesCollapse" aria-expanded="false" aria-controls="subcategoriesCollapse">
+            Subcategory
+        </button>
+        <div class="collapse" id="subcategoriesCollapse">
+            <div class="card card-body">
+                <a class="dropdown-item" href="#">Top</a>
+                <a class="dropdown-item" href="#">Bottom</a>
+                <a class="dropdown-item" href="#">Shoes</a>
+                <a class="dropdown-item" href="#">Accessories</a>
+            </div>
+        </div>
+    </div>
+    <!-- Condition Collapse -->
+    <div class="filter" id="conditionFilter">
+        <button class="btn btn-light btn-lg dropdown-toggle text-start" type="button" data-bs-toggle="collapse"
+            data-bs-target="#conditionCollapse" aria-expanded="false" aria-controls="conditionCollapse">
+            Condition
+        </button>
+        <div class="collapse" id="conditionCollapse">
+            <div class="card card-body">
+                <a class="dropdown-item" href="#">Brand New</a>
+                <a class="dropdown-item" href="#">Good</a>
+                <a class="dropdown-item" href="#">Fair</a>
+            </div>
+        </div>
+    </div>
+    <!-- Price Range Collapse -->
+    <div class="filter" id="priceRangeFilter">
+        <button class="btn btn-light btn-lg dropdown-toggle text-start" type="button" data-bs-toggle="collapse"
+            data-bs-target="#priceRangeCollapse" aria-expanded="false" aria-controls="priceRangeCollapse">
+            Price Range
+        </button>
+        <div class="collapse" id="priceRangeCollapse">
+            <div class="card card-body">
+                <form class="px-4 py-3">
+                    <div class="form-group">
+                        <label for="minPrice">Minimum Price</label>
+                        <input type="number" class="form-control" id="minPrice" placeholder="Enter minimum price" />
+                    </div>
+                    <div class="form-group pb-2">
+                        <label for="maxPrice">Maximum Price</label>
+                        <input type="number" class="form-control" id="maxPrice" placeholder="Enter maximum price" />
+                    </div>
+                    <button type="submit" class="btn btn-dark" id="priceRangeApplyBtn">Apply</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Size Collapse -->
+    <div class="filter" id="sizeFilter">
+        <button class="btn btn-light btn-lg dropdown-toggle text-start" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sizeCollapse" aria-expanded="false" aria-controls="sizeCollapse">
+            Size
+        </button>
+        <div class="collapse" id="sizeCollapse">
+            <div class="card card-body">
+                <a class="dropdown-item" href="#">2XS</a>
+                <a class="dropdown-item" href="#">XS</a>
+                <a class="dropdown-item" href="#">S</a>
+                <a class="dropdown-item" href="#">M</a>
+                <a class="dropdown-item" href="#">L</a>
+                <a class="dropdown-item" href="#">XL</a>
+                <a class="dropdown-item" href="#">2XL</a>
+            </div>
+        </div>
+    </div>
+    <!-- Location Collapse -->
+    <div class="filter" id="locationFilter">
+        <button class="btn btn-light btn-lg dropdown-toggle text-start" type="button" data-bs-toggle="collapse"
+            data-bs-target="#locationCollapse" aria-expanded="false" aria-controls="locationCollapse">
+            Location
+        </button>
+        <div class="collapse" id="locationCollapse">
+            <div class="card card-body">
+                <a class="dropdown-item" href="#">The CBD and Inner-East</a>
+                <a class="dropdown-item" href="#">Eastern Suburbs</a>
+                <a class="dropdown-item" href="#">Northern Beaches</a>
+                <a class="dropdown-item" href="#">The North Shore</a>
+                <a class="dropdown-item" href="#">The Inner-West</a>
+                <a class="dropdown-item" href="#">Parramatta and Western Sydney</a>
+                <a class="dropdown-item" href="#">The South</a>
+                <a class="dropdown-item" href="#">The South West</a>
+                <a class="dropdown-item" href="#">Central Coast</a>
+                <a class="dropdown-item" href="#">The Blue Mountains</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Item</title>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      form {
+        display: inline-block;
+        text-align: left;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+
+      select,
+      input[type='number'],
+      input[type='file'],
+      button {
+        margin-top: 5px;
+      }
+
+      button {
+        padding: 5px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Edit Item</h1>
+    <form
+      id="editForm"
+      action="/items/{{_id}}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" step="0.01" required />
+    </div>
+      <div>
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+          <option value="Men">Men</option>
+          <option value="Women">Women</option>
+          <option value="Kids">Kids</option>
+        </select>
+      </div>
+      <div>
+        <label for="subcategory">Subcategory:</label>
+        <select name="subcategory" id="subcategory">
+          <option value="Top">Top</option>
+          <option value="Bottom">Bottom</option>
+          <option value="Shoes">Shoes</option>
+          <option value="Accessories">Accessories</option>
+        </select>
+      </div>
+      <div>
+        <label for="condition">Condition:</label>
+        <select name="condition" id="condition">
+          <option value="Brand New">Brand New</option>
+          <option value="Good">Good</option>
+          <option value="Fair">Fair</option>
+        </select>
+      </div>
+      <div>
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" step="0.01" required />
+      </div>
+      <div>
+        <label for="size">Size:</label>
+        <select name="size" id="size">
+          <option value="2XS">2XS</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="2XL">2XL</option>
+        </select>
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <select name="location" id="location">
+          <option value="The CBD and inner-east">The CBD and inner-east</option>
+          <option value="Eastern Suburbs">Eastern Suburbs</option>
+          <option value="Northern Beaches">Northern Beaches</option>
+          <option value="The North Shore">The North Shore</option>
+          <option value="The Inner-West">The Inner-West</option>
+          <option value="Paramatta and Western Sydney">
+            Paramatta and Western Sydney
+          </option>
+          <option value="The South">The South</option>
+          <option value="The South West">The South West</option>
+          <option value="Central Coast">Central Coast</option>
+          <option value="The Blue Mountains">The Blue Mountains</option>
+        </select>
+      </div>
+      <div>
+        <label for="image">Image:</label>
+        <input
+          type="file"
+          name="image"
+          id="image"
+          accept="image/*"
+          onchange="previewImage(event)"
+        />
+        <img
+          id="preview"
+          src=""
+          alt="Preview"
+          style="max-width: 200px; margin-top: 10px; display: none"
+        />
+      </div>
+      <button type="submit">Save</button>
+    </form>
+    <script>
+      function previewImage(event) {
+        const preview = document.getElementById('preview');
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = function () {
+          preview.src = reader.result;
+          preview.style.display = 'block';
+        };
+
+        if (file) {
+          reader.readAsDataURL(file);
+        } else {
+          preview.src = '';
+          preview.style.display = 'none';
+        }
+      }
+      // Fetch item data and populate the form
+      const itemId = window.location.pathname.split('/').pop();
+      fetch(`/items/${itemId}`)
+        .then((response) => response.json())
+        .then((data) => {
+          const editForm = document.getElementById('editForm');
+          const categorySelect = editForm.elements.category;
+          const subcategorySelect = editForm.elements.subcategory;
+          const conditionSelect = editForm.elements.condition;
+          const priceInput = editForm.elements.price;
+          const sizeSelect = editForm.elements.size;
+          const locationSelect = editForm.elements.location;
+          const imageInput = editForm.elements.image;
+          const preview = document.getElementById('preview');
+
+          categorySelect.value = data.category;
+          subcategorySelect.value = data.subcategory;
+          conditionSelect.value = data.condition;
+          priceInput.value = data.price;
+          sizeSelect.value = data.size;
+          locationSelect.value = data.location;
+          preview.src = `/uploads/${data.image}`;
+          preview.style.display = 'block';
+
+          // Handle form submission
+          editForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(editForm);
+
+            // Get the item ID from the URL
+            const itemId = window.location.pathname.split('/').pop();
+
+            // Append the item ID to the form data
+            formData.append('itemId', itemId);
+
+            fetch(`/items/${itemId}`, { method: 'PUT', body: formData })
+              .then((response) => response.json())
+              .then((data) => {
+                
+                alert("Product Updated Successfully");
+                window.location.href = '/items.html';
+              })
+              .catch((error) => console.error('Error updating item:', error));
+          });
+        })
+        .catch((error) => console.error('Error fetching item:', error));
+    </script>
+  </body>
+</html>

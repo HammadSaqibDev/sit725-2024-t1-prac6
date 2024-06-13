@@ -1,0 +1,39 @@
+<script src="/js/clothes.js" type="module"></script>
+<link href="/css/clothes.css" rel="stylesheet" />
+
+<div>
+    <div class="d-flex px-5 pt-5 mb-5">
+        <div class="me-2 search-input-container">
+            <input class="form-control autocomplete" type="search" placeholder="Search" aria-label="Search"
+                id="searchInput" />
+        </div>
+        <button class="btn btn-dark btn-lg" type="button" id="searchButton">
+            Search
+        </button>
+    </div>
+</div>
+<div class="container-fluid ps-5">
+    <div class="row align-items-start">
+
+        {{> filters }}
+
+        <!-- cards to display searched results and filtered results -->
+        <div class="col col-10 ps-5 pe-5">
+            <div class="row row-cols-4 g-4">
+                {{error}}
+                {{!-- Used to dynamically render cloth item --}}
+                {{#each items}}
+                {{> clothItem image=image name=name price=price id=_id }}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Created a banner on the bottom--}}
+<div class="alert alert-info alert-dismissible fade show fixed-bottom end-0 p-3" id="prompt" role="alert">
+    <strong>Hello!</strong> It seems that you've stayed on this page for a long time. If you can't find interested
+    items, come back and
+    check regularly because we keep uploading new clothes for trade! &#128512;
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>

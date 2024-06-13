@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in / Sign up | ReWearIt</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="logo">
+      <a class="brand-logo">
+        <img class="user-image-size" src="images/rewearit_logo.png" />
+      </a>
+    </div>
+
+  <!-- LOGIN FORM -->
+    <div class="container">
+      <div class="box"></div>
+      <div class="container-forms">
+        <div class="container-info">
+          <div class="info-item">
+            <div class="table">
+              <div class="table-cell">
+                <p>
+                  Have an account?
+                </p>
+                <div class="btn">
+                  Log in
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="table">
+              <div class="table-cell">
+                <p>
+                  Don't have an account?
+                </p>
+                <div class="btn">
+                  Sign up
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-form">
+          <div class="form-item log-in">
+            <div class="table">
+              <form class="table-cell" name="loginForm">
+                <input name="Username" placeholder="Username" type="text" />
+                <input name="Password" placeholder="Password" type="Password" />
+                <button class="button" id="login_btn" >Log in</button>
+              </form>
+            </div>
+          </div>
+          <div class="form-item sign-up">
+            <div class="table">
+              <form class="table-cell" name="regForm">
+                <input name="email" placeholder="Email" type="text" />
+                <input name="fullName" placeholder="Full Name" type="text" />
+                <input name="Username" placeholder="Username" type="text" />
+                <input name="Password" placeholder="Password" type="Password" />
+                <input
+                  name="confPassword"
+                  placeholder="Confirm Password"
+                  type="Password"
+                />
+                <button class="button" id="register_btn">Sign up</button>
+     
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="loader-container">
+      <div class="loader"></div>
+    </div>
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+#ac-menu-1 {
+    max-width: 100% !important;
+    width: 100%;
+}
+
+.search-input-container {
+    flex-grow: 1;
+    position: relative;
+}
+
+.search-input-container input {
+    height: 100%;
+}
+
+.filter {
+    width: 100%;
+}
+
+.filter>button {
+    width: 100%;
+}
+
+#prompt {
+    display: none;
+}
+
+.card img {
+    height: 350px;
+    object-fit: cover;
+}

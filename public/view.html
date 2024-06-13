@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReWearIt</title>
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="/dashboard/style.css" />
+     <!-- Google Fonts stylesheet -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+     <!-- Material Icons stylesheet -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+     <!-- Axios library for HTTP requests -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>View Item</title>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      h1 {
+        margin-top: 20px;
+      }
+
+      .item-details {
+        display: inline-block;
+        margin-top: 20px;
+        text-align: left;
+        border: 1px solid #ddd;
+        padding: 20px;
+      }
+
+      .item-details img {
+        max-width: 200px;
+        max-height: 200px;
+        margin-bottom: 10px;
+      }
+
+      .action-buttons {
+        margin-top: 20px;
+      }
+      #editButton{
+        width:10%;
+        height:15%;
+      }
+      #deleteButton{
+        width:10%;
+        height:15%;      
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <!-- ReWearIt logo -->
+      <div class="rewearit_logo" id="rewearit_logo" style="cursor: pointer;" onClick="refreshPage()" >
+        <img src="/images/rewearit_logo.png" width="150" height="120" />
+      </div>
+      <!-- Navbar links -->
+      <div class="navbar_links flex">
+        <!-- <a href="#" class="home_tab" onClick="refreshPage()">HOME</a> -->
+        <!-- <a href="#" class="categories_tab" id="categories_tab">CATEGORIES</a> -->
+        <!-- <a href="#" class="about_us_tab" id="about_us_tab">ABOUT US</a> -->
+        <!-- <a href="#" class="contact_us_tab" id="contact_us_tab">CONTACT US</a> -->
+        <span class="material-symbols-outlined search_tab" id="search_tab" style="cursor: pointer;"> search </span>
+        <span class="material-symbols-outlined logout_tab" id="logout_tab" style="cursor: pointer;"> logout </span>
+    <!-- logout dropdown box-->
+    <div id="myDropdown" class="dropdown-content">
+      <div class="option option_1">
+        <span class="material-symbols-outlined">logout</span>
+        <span class="option-text">Logout</span>
+      </div>
+      <div class=" option option_2">
+        <span class="material-symbols-outlined">
+          close
+          </span>
+          <span class="option-text">Cancel</span>
+        </div>
+    </div>
+    <!--  logout dropdown ends-->
+    </nav>
+    <h1>View Item</h1>
+
+    <div class="item-details">
+      <img src="" alt="Item Image">
+      <p><strong>Name:</strong> <span id="name1"></span></p>
+      <p><strong>Category:</strong> <span id="category"></span></p>
+      <p><strong>Subcategory:</strong> <span id="subcategory"></span></p>
+      <p><strong>Condition:</strong> <span id="condition"></span></p>
+      <p><strong>Price:</strong> <span id="price"></span></p>
+      <p><strong>Size:</strong> <span id="size"></span></p>
+      <p><strong>Location:</strong> <span id="location"></span></p>
+    </div>
+
+    <div class="action-buttons">
+      <button id="editButton">Edit</button>
+      <button id="deleteButton">Delete</button>
+    </div>
+
+    <footer class="flex">
+      <div class="logo_and_social_handles">
+        <img src="/images/rewearit_logo.png" width="150" height="120" />
+        <div class="social_handles flex">
+          <img src="/images/fb.png" id="fb_handle" height="13%" width="13%">
+          <img src="/images/Ig.png" id="insta_handle" height="11%" width="11%">
+          <img src="/images/yt.png" id="youtube_handle" height="13%" width="13%">
+        </div>
+      </div>
+      <div class="services">
+        <h3>SERVICES</h3>
+        <h4 class="home_tab" id="home_services">Home</h4>
+        <h4 class="about_us_tab" id="about_us_services">About Us</h4>
+        <h4 class="Contact_us_tab" id="Contact_us_services">Contact Us</h4>
+      </div>
+      <div class="contact_us_footer"> 
+        <h3>CONTACT US</h3>
+        <h4>+61 9877756090</h4>
+        <h4>rewearit@gmail.com</h4>
+        <h4>Sydney, Australia</h4>
+      </div>
+
+    
+    </footer>
+<!-- end part -->
+    <div class="fade_effect1"></div>
+    <div class="all_rights_reserved">2023 ReWearIt. All rights reserved.</div>
+  
+
+    <script>
+      // Fetch item details and populate the view
+      const itemId = window.location.pathname.split('/').pop();
+
+      fetch(`/items/${itemId}`)
+        .then((response) => response.json())
+        .then((item) => {
+          const name = document.getElementById('name1');
+          const category = document.getElementById('category');
+          const subcategory = document.getElementById('subcategory');
+          const condition = document.getElementById('condition');
+          const price = document.getElementById('price');
+          const size = document.getElementById('size');
+          const location = document.getElementById('location');
+
+          const image = document.querySelector('.item-details img');
+          image.src = `/uploads/${item.image}`;
+
+          name.textContent = item.name;
+          category.textContent = item.category;
+          subcategory.textContent = item.subcategory;
+          condition.textContent = item.condition;
+          price.textContent = item.price;
+          size.textContent = item.size;
+          location.textContent = item.location;
+
+          const editButton = document.getElementById('editButton');
+          editButton.addEventListener('click', () => {
+            window.location.href = `/edit/${itemId}`;
+          });
+
+          const deleteButton = document.getElementById('deleteButton');
+          deleteButton.addEventListener('click', () => {
+            if (confirm('Are you sure you want to delete this item?')) {
+              fetch(`/items/${itemId}`, { method: 'DELETE' })
+                .then(() => {
+                  alert('Item deleted successfully');
+                  window.location.href = '/items.html';
+                })
+                .catch((error) =>
+                  console.error('Error deleting item:', error)
+                );
+            }
+          });
+        })
+        .catch((error) => console.error('Error fetching item details:', error));
+    </script>
+    <script src="/dashboard/scripts.js"></script>
+
+  </body>
+</html>
