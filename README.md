@@ -1,4 +1,4 @@
-## sit725-2023-t1-teamwork
+## sit725-2024-t1-prac6
 This is the repository for our group project- ReWearIt.
 
 ## Installation
