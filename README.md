@@ -1,5 +1,16 @@
 ## sit725-2024-t1-prac6
 Task 6.2D
+Testing plays a crucial role in ensuring the reliability and functionality of software. It is a vital
+component that can demonstrate the HD (High Distinction) worthiness of your group project. Pay
+close attention as we delve into the world of testing and its significance in software development.
+Part 1: Take advantage of the provided slides and actively participate in the practical session to gain
+insights into basic testing strategies. This will equip you with essential knowledge and techniques to
+design and implement effective tests for your software.
+Part 2: Continuing from previous weeks, import your weekly project into a new repository. It's time to
+make the necessary modifications and incorporate testing into your project. Implementing tests will
+help verify the correctness of your code, identify potential issues or bugs, and enhance the overall
+quality of your software.
+
 ## Installation
 To run this application locally, follow these steps:
 
